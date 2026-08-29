@@ -1,26 +1,28 @@
 # Full Stack Open: React Native
 
-Rate Repository -sovellus, joka on toteutettu Expolla ja React Nativella.
+Rate Repository application built with Expo and React Native.
 
-## Rakenne
+| Directory | Contents |
+| --- | --- |
+| [rate-repository-app](./rate-repository-app) | Expo application: repository list, single repository view, reviews, sign in and sign up |
 
-```
-rate-repository-app/   Expo-sovellus
-```
+Node 22 is expected.
 
-## Käyttö
+## Running the application
 
 ```bash
 cd rate-repository-app
 npm install
+cp .env.example .env       # EXPO_PUBLIC_APOLLO_URI
 npm start
 ```
 
-Sovelluksen käyttämä GraphQL-osoite luetaan ympäristömuuttujasta `APOLLO_URI`
-(katso `.env.example`). Backend on erillinen `rate-repository-api`, joka
-käynnistetään omassa hakemistossaan.
+The GraphQL server address is read from the `EXPO_PUBLIC_APOLLO_URI`
+environment variable. The backend is the separate `rate-repository-api`
+project, which is started in its own directory and listens on
+http://localhost:4000 by default.
 
-Lintterin ja testit saa ajettua komennoilla:
+## Linting and tests
 
 ```bash
 npm run lint
