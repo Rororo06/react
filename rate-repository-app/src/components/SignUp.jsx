@@ -14,8 +14,16 @@ const styles = StyleSheet.create({
 const initialValues = { username: '', password: '', passwordConfirm: '' };
 
 const validationSchema = yup.object().shape({
-  username: yup.string().min(1).max(30).required('Username is required'),
-  password: yup.string().min(5).max(50).required('Password is required'),
+  username: yup
+    .string()
+    .min(5, 'Username must be at least 5 characters')
+    .max(30, 'Username must be at most 30 characters')
+    .required('Username is required'),
+  password: yup
+    .string()
+    .min(5, 'Password must be at least 5 characters')
+    .max(50, 'Password must be at most 50 characters')
+    .required('Password is required'),
   passwordConfirm: yup
     .string()
     .oneOf([yup.ref('password')], 'Passwords do not match')
